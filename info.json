@@ -9,6 +9,9 @@
 		, "space-age"
 		, "? Rocs-Rusting-Iron"
 		, "? oceandump"
+		, "! battery-powered"
+		, "! biochemistry"
+		, "! fulgoran-sludge"
 	],
 	"description": "Even in the lightning-blasted ruins of Fulgora, life can still be found. Farm native electrophages and corals, charge and ship batteries"
 }
