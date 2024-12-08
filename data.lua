@@ -1,0 +1,5 @@
+require("code.data.misc")
+require("code.data.sludge")
+require("code.data.electrophages")
+require("code.data.batteries")
+require("code.data.fulgorites")
