@@ -53,6 +53,7 @@ data:extend({fulgoriteStarterItem})
 -- Create recipe to crush fulgorite shards for holmium powder.
 local crushFulgoriteShardRecipe = table.deepcopy(data.raw.recipe["plastic-bar"])
 crushFulgoriteShardRecipe.name = "holmium-ore" -- Naming it the same as holmium ore, so it doesn't get a separate entry in Factoriopedia etc.
+crushFulgoriteShardRecipe.category = "organic-or-chemistry" -- Chem plant or biochamber.
 ---@diagnostic disable-next-line: inject-field
 crushFulgoriteShardRecipe.auto_recycle = false
 crushFulgoriteShardRecipe.results = {
