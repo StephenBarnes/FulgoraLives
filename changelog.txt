@@ -1,9 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 9. 12. 2024
+  Features:
+    - Added compatibility with Any Planet Start mod. It's now possible to win starting on Fulgora with this mod enabled, though some of the technologies and recipes are unlocked when they're not useful (e.g. recipes using water before you have any way to obtain water).
+    - All recipes that have accumulators as ingredients are modified to use charged batteries instead. This should reduce conflicts with other mods.
   Changes:
     - Recipe turning fulgorite shards into holmium powder can now be crafted in biochambers.
-    - TODO more
 ---------------------------------------------------------------------------------------------------
 Version: 1.0.0
 Date: 8. 12. 2024

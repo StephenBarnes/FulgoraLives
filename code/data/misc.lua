@@ -8,8 +8,8 @@ data.raw["recipe"]["scrap-recycling"].results = {
 	{ type = "item", name = "processing-unit",       amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false },
 	{ type = "item", name = "advanced-circuit",      amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false },
 	{ type = "item", name = "low-density-structure", amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false },
-	--{ type = "item", name = "solid-fuel",            amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false },
-		-- Changed 0.07 -> 0.02. Actually removing bc you can make it from sludge easily and it's not useful for power gen any more.
+	--{ type = "item", name = "solid-fuel",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false },
+		-- Changed 0.07 -> 0.01. Actually rather removing this bc you can make it from sludge easily and it's not useful for power gen any more.
 	{ type = "item", name = "steel-plate",           amount = 1, probability = 0.04, show_details_in_recipe_tooltip = false },
 	{ type = "item", name = "concrete",              amount = 1, probability = 0.06, show_details_in_recipe_tooltip = false },
 	--{ type = "item", name = "stone-brick",           amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false },

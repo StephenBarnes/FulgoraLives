@@ -8,7 +8,13 @@ Export.ifThenElse = function(condition, thenValue, elseValue)
 	end
 end
 
-Export.substituteIngredient = function(recipeName, ingredientName, newIngredientName, newAmount)
+Export.substituteIngredient = function(recipeName, ingredientName, newIngredientName, newAmount, enableWarnings)
+	if data.raw.recipe[recipeName].ingredients == nil then
+		if enableWarnings == nil or enableWarnings == true then
+			log("Warning: recipe "..recipeName.." has no ingredients.")
+		end
+		return
+	end
 	for _, ingredient in pairs(data.raw.recipe[recipeName].ingredients) do
 		if ingredientName == ingredient.name then
 			ingredient.name = newIngredientName
@@ -18,7 +24,9 @@ Export.substituteIngredient = function(recipeName, ingredientName, newIngredient
 			return
 		end
 	end
-	log("Warning: ingredient not found: "..ingredientName.." in recipe "..recipeName)
+	if enableWarnings == nil or enableWarnings == true then
+		log("Warning: ingredient not found: "..ingredientName.." in recipe "..recipeName)
+	end
 end
 
 Export.addRecipeToTech = function(recipeName, techName, index)
@@ -40,6 +48,21 @@ Export.addRecipeToTech = function(recipeName, techName, index)
 			table.insert(tech.effects, index, unlock)
 		end
 	end
+end
+
+Export.removeRecipeFromTech = function(recipeName, techName)
+	local tech = data.raw.technology[techName]
+	if tech == nil then
+		log("ERROR: Couldn't find tech "..techName.." to remove recipe "..recipeName.." from.")
+		return
+	end
+	for i, effect in pairs(tech.effects) do
+		if effect.type == "unlock-recipe" and effect.recipe == recipeName then
+			table.remove(tech.effects, i)
+			return
+		end
+	end
+	log("Warning: Tried to remove recipe "..recipeName.." from tech "..techName..", but it wasn't found.")
 end
 
 Export.copyAndEdit = function(t, edits)
@@ -114,9 +137,18 @@ Export.hideTech = function(techName)
 end
 
 Export.removePrereq = function(techName, oldPrereq)
-	for i, prereq in pairs(data.raw.technology[techName].prerequisites) do
+	local tech = data.raw.technology[techName]
+	if tech == nil then
+		log("Couldn't find tech "..techName.." to hide.")
+		return
+	end
+	if tech.prerequisites == nil then
+		log("Tech "..techName.." has no prerequisites.")
+		return
+	end
+	for i, prereq in pairs(tech.prerequisites) do
 		if prereq == oldPrereq then
-			table.remove(data.raw.technology[techName].prerequisites, i)
+			table.remove(tech.prerequisites, i)
 			return
 		end
 	end
