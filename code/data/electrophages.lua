@@ -118,9 +118,9 @@ data:extend({
 		},
 		subgroup = "fulgora-processes",
 		order = "c[organics]-b[electrophage]",
-		inventory_move_sound = data.raw.item["iron-bacteria"].inventory_move_sound,
-		pick_sound = data.raw.item["iron-bacteria"].pick_sound,
-		drop_sound = data.raw.item["iron-bacteria"].drop_sound,
+		inventory_move_sound = data.raw.item["battery"].inventory_move_sound,
+		pick_sound = data.raw.item["battery"].pick_sound,
+		drop_sound = data.raw.item["battery"].drop_sound,
 		stack_size = data.raw.item["iron-bacteria"].stack_size,
 		default_import_location = "fulgora",
 		weight = data.raw.item["iron-bacteria"].weight,
@@ -163,4 +163,8 @@ polysaltItem.subgroup = "fulgora-processes"
 polysaltItem.order = "c[organics]-b[polysalt]"
 polysaltItem.spoil_result = "stone"
 polysaltItem.spoil_ticks = 60 * 60 * 60 -- 1 hour.
+-- Copy dry powder sounds from sulfur, instead of wet nutrient sounds.
+polysaltItem.drop_sound = data.raw.item["sulfur"].drop_sound
+polysaltItem.pick_sound = data.raw.item["sulfur"].pick_sound
+polysaltItem.inventory_move_sound = data.raw.item["sulfur"].inventory_move_sound
 data:extend({polysaltItem})

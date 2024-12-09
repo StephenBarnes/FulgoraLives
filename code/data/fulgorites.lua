@@ -32,6 +32,11 @@ data.raw.item["holmium-ore"].pictures = {
 }
 data.raw.item["holmium-ore"].icon = "__FulgoraLives__/graphics/fulgorite-stuff/holmium-powder1.png"
 
+-- Change holmium powder sounds so it sounds like a powder instead of rock.
+data.raw.item["holmium-ore"].drop_sound = data.raw.item["sulfur"].drop_sound
+data.raw.item["holmium-ore"].pick_sound = data.raw.item["sulfur"].pick_sound
+data.raw.item["holmium-ore"].inventory_move_sound = data.raw.item["sulfur"].inventory_move_sound
+
 -- Fulgorite should yield fulgorite shard on mining, not holmium powder or stone or electrophages.
 data.raw["simple-entity"]["fulgurite"].minable.results = { {type = "item", name = "fulgorite-shard", amount_min = 4, amount_max = 8} }
 data.raw["simple-entity"]["fulgurite-small"].minable.results = { {type = "item", name = "fulgorite-shard", amount_min = 2, amount_max = 4} }
