@@ -18,19 +18,12 @@ fulgoriteShardItem.order = "c[organics]-c[fulgorite-shard]"
 data:extend({fulgoriteShardItem})
 
 -- Change holmium ore sprite to look like powder, since I'm renaming it to holmium powder.
-data.raw.item["holmium-ore"].pictures = {
-	{
-		filename = "__FulgoraLives__/graphics/fulgorite-stuff/holmium-powder1.png",
-		size = 64,
-		mipmap_count = 4,
-	},
-	{
-		filename = "__FulgoraLives__/graphics/fulgorite-stuff/holmium-powder2.png",
-		size = 64,
-		mipmap_count = 4,
-	},
-}
-data.raw.item["holmium-ore"].icon = "__FulgoraLives__/graphics/fulgorite-stuff/holmium-powder1.png"
+local holmiumPowderIcons = {}
+for _, a in pairs{"a", "b"} do for _, b in pairs{"0", "90", "180", "270"} do
+	table.insert(holmiumPowderIcons, {filename = "__FulgoraLives__/graphics/fulgorite-stuff/holmium-powder-"..a.."-"..b..".png", size = 64, mipmap_count = 4, scale = 0.65})
+end end
+data.raw.item["holmium-ore"].pictures = holmiumPowderIcons
+data.raw.item["holmium-ore"].icon = holmiumPowderIcons[1].filename
 
 -- Change holmium powder sounds so it sounds like a powder instead of rock.
 data.raw.item["holmium-ore"].drop_sound = data.raw.item["sulfur"].drop_sound

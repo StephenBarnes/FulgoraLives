@@ -2,8 +2,8 @@
 Version: 1.3.0
 Date: 10. 12. 2024
   Changes:
+    - Holmium powder sprites on belts are now smaller and have more variations so they look less dumb.
     - Battery dischargers now produce 2MW instead of 1MW. Chargers are still 1MW.
-    - TODO
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 10. 12. 2024
