@@ -3,11 +3,10 @@ local Util = require("code.util")
 -- Some code and graphics are copied from the Battery Powered mod by harag.
 
 -- I'm using 1 charger and 1 discharger building. Both run at 1MW.
--- I'm making 2 types of batteries: normal battery is 2MJ and holmium battery is 20MJ.
--- Crafting speed of charger/discharger are 1. So charging the batteries needs to take 2 and 20 seconds respectively.
+-- I'm making 2 types of batteries: normal battery is 10MJ and holmium battery is 100MJ.
+-- Crafting speed of charger/discharger are 1. So charging the batteries needs to take 10 and 100 seconds respectively.
 -- Compare to vanilla accumulators, which hold 5MJ and have max input/output of 300kW.
 -- So compared to accumulators, you need fewer chargers/dischargers, but a much more complex setup to load batteries into chargers/dischargers and return used ones, etc.
-
 
 -- Create recipe category for charging, fuel category for batteries.
 data:extend({
@@ -28,9 +27,9 @@ chargedBatteryItem.order = batteryItem.order .. '-2'
 chargedBatteryItem.burnt_result = "battery"
 chargedBatteryItem.fuel_category = "battery"
 chargedBatteryItem.fuel_emissions_multiplier = 0
-chargedBatteryItem.fuel_value = "2MJ"
+chargedBatteryItem.fuel_value = "10MJ"
 	-- Quick google says a real-life car battery is 4.3MJ.
-	-- So per stack of 100, it's 200MJ, and per rocket of 1000, it's 2GJ.
+	-- So per stack of 100, it's 1GJ, and per rocket of 1000, it's 10GJ.
 	-- Compared to 8GJ in one nuclear fuel, per stack of 50 is 400GJ and per rocket of 10 is 80GJ.
 	-- Compared to 12MJ solid fuel, per stack of 50 is 600MJ and per rocket of 1000 is 12GJ. Makes sense that solid fuel would be more per mass, I think.
 	-- Seems that in real life, lithium-ion batteries are ~1GJ/ton while solid fuels are ~50GJ/ton.
@@ -49,10 +48,10 @@ chargedHolmiumBatteryItem.weight = 1000
 chargedHolmiumBatteryItem.burnt_result = "holmium-battery"
 chargedHolmiumBatteryItem.fuel_category = "battery"
 chargedHolmiumBatteryItem.fuel_emissions_multiplier = 0
-chargedHolmiumBatteryItem.fuel_value = "20MJ"
+chargedHolmiumBatteryItem.fuel_value = "100MJ"
 	-- So 10x as much as a normal battery.
-	-- Per stack of 200, it's 4GJ, and per rocket of 1000, it's 20GJ.
-	-- Compare to nuclear fuel which is 80GJ/rocket. But I'm going to reduce the weight of that since nuclear is late-game now.
+	-- Per stack of 200, it's 20GJ, and per rocket of 1000, it's 100GJ.
+	-- Compare to nuclear fuel which is 80GJ/rocket.
 data:extend({chargedBatteryItem, holmiumBatteryItem, chargedHolmiumBatteryItem})
 
 -- Create recipe for holmium batteries.
@@ -304,7 +303,7 @@ data:extend({
         show_recipe_icon = false,
         crafting_categories = { "charging" },
         order = "z-1",
-        energy_usage = "5MW", -- PowerMultiplier will increase this, so we decrease it again in batteries-dff.lua.
+        energy_usage = "1MW", -- PowerMultiplier will increase this, so we decrease it again in batteries-dff.lua.
         energy_source = {
             type = "electric",
             usage_priority = "secondary-input",
@@ -350,7 +349,7 @@ data:extend({
 			usage_priority = "tertiary",
 			drain = "0kW",
 		},
-		max_power_output = "5MW",
+		max_power_output = "1MW",
         order = "z-2",
 		burner = {
 			emissions_per_minute = {},
@@ -398,7 +397,7 @@ data:extend({
 		name = "charge-battery",
 		ingredients = { { type = "item", name = "battery", amount = 1 } },
 		results = { { type = "item", name = "charged-battery", amount = 1, probability = 0.98 } },
-		energy_required = 2, -- Charger uses 1MW, battery holds 2MJ.
+		energy_required = 10, -- Charger uses 1MW, battery holds 10MJ.
 		enabled = false,
 		category = "charging",
 		show_amount_in_title = false,
@@ -410,7 +409,7 @@ data:extend({
 		name = "charge-holmium-battery",
 		ingredients = { { type = "item", name = "holmium-battery", amount = 1 } },
 		results = { { type = "item", name = "charged-holmium-battery", amount = 1 } },
-		energy_required = 20, -- Charger uses 1MW, battery holds 20MJ.
+		energy_required = 100, -- Charger uses 1MW, battery holds 100MJ.
 		enabled = false,
 		category = "charging",
 		allowed_effects = {},

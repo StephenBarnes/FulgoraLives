@@ -1,9 +1,11 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 10. 12. 2024
-  Features:
+  Bugfixes:
+    - Battery charger and discharger changed from 1MW to 5MW to match recipes.
+  Changes:
     - Improved item sounds.
-    - TODO
+    - Capacities of batteries multiplied by 5 for balance.
 ---------------------------------------------------------------------------------------------------
 Version: 1.1.0
 Date: 9. 12. 2024
