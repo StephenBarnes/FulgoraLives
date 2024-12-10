@@ -1,8 +1,14 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.3.0
+Date: 10. 12. 2024
+  Changes:
+    - Battery dischargers now produce 2MW instead of 1MW. Chargers are still 1MW.
+    - TODO
+---------------------------------------------------------------------------------------------------
 Version: 1.2.0
 Date: 10. 12. 2024
   Bugfixes:
-    - Battery charger and discharger changed from 1MW to 5MW to match recipes.
+    - Battery charger and discharger changed from 5MW to 1MW to match recipes.
   Changes:
     - Improved item sounds.
     - Capacities of batteries multiplied by 5 for balance.

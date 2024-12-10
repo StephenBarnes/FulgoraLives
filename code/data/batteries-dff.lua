@@ -1,6 +1,6 @@
 -- Change battery charger/discharger energies back, if another mod (eg PowerMultiplier) has changed them.
 data.raw.furnace["battery-charger"].energy_usage = "1MW"
-data.raw["burner-generator"]["battery-discharger"].max_power_output = "1MW"
+data.raw["burner-generator"]["battery-discharger"].max_power_output = "2MW"
 
 -- Look through recipes and check if they use accumulators - if so, replace with charged batteries.
 local Util = require("code.util")

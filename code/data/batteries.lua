@@ -2,7 +2,7 @@ local Util = require("code.util")
 
 -- Some code and graphics are copied from the Battery Powered mod by harag.
 
--- I'm using 1 charger and 1 discharger building. Both run at 1MW.
+-- I'm using 1 charger and 1 discharger building. Chargers run at 1MW, generators at 2MW.
 -- I'm making 2 types of batteries: normal battery is 10MJ and holmium battery is 100MJ.
 -- Crafting speed of charger/discharger are 1. So charging the batteries needs to take 10 and 100 seconds respectively.
 -- Compare to vanilla accumulators, which hold 5MJ and have max input/output of 300kW.
@@ -349,7 +349,7 @@ data:extend({
 			usage_priority = "tertiary",
 			drain = "0kW",
 		},
-		max_power_output = "1MW",
+		max_power_output = "2MW",
         order = "z-2",
 		burner = {
 			emissions_per_minute = {},
