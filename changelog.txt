@@ -2,7 +2,7 @@
 Version: 1.4.0
 Date: 14. 12. 2024
   Changes:
-    - TODO
+    - Fulgorite shards now produce 2x holmium powder for balance against other sources of holmium powder.
     - Recycling a charged battery now gives back the uncharged battery.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0

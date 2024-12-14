@@ -2,10 +2,10 @@
 
 Util = require("code.util")
 
--- Nutrients + fulgorite shards => fulgorite starter
+-- Electrophages + 2 fulgorite shards => fulgorite starter
 -- Fulgorite starter grows into fulgorite
--- Fulgorite gets harvested to produce fulgorite shards
--- Fulgorite shards can also be crushed to produce holmium.
+-- Fulgorite gets harvested to produce 4-8 fulgorite shards
+-- Fulgorite shard can also be crushed to produce 4 holmium powder.
 
 -- Create item for fulgorite shards.
 -- I'm changing the holmium ore item to be called "holmium powder". Then using the holmium ore graphic for fulgorite shards.
@@ -55,7 +55,7 @@ crushFulgoriteShardRecipe.category = "organic-or-chemistry" -- Chem plant or bio
 ---@diagnostic disable-next-line: inject-field
 crushFulgoriteShardRecipe.auto_recycle = false
 crushFulgoriteShardRecipe.results = {
-	{ type = "item", name = "holmium-ore", amount = 1 },
+	{ type = "item", name = "holmium-ore", amount = 2 },
 }
 crushFulgoriteShardRecipe.main_product = "holmium-ore"
 crushFulgoriteShardRecipe.ingredients = {
@@ -104,7 +104,7 @@ fulgoritePlant.mining_sound = nil
 fulgoritePlant.minable.mining_particle = "stone-particle"
 data:extend({fulgoritePlant})
 
--- Hide "fulgorite pieces" from Factoriopedia to not confuse people.
+-- Hide "fulgorite pieces" simple entity from Factoriopedia to not confuse people.
 data.raw["simple-entity"]["fulgurite-small"].hidden_in_factoriopedia = true
 data.raw["simple-entity"]["fulgurite-small"].factoriopedia_alternative = "fulgorite-plant"
 
