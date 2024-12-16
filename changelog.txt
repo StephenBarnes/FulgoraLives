@@ -1,9 +1,14 @@
 ---------------------------------------------------------------------------------------------------
 Version: 1.4.0
-Date: 14. 12. 2024
-  Changes:
+Date: 16. 12. 2024
+  Graphics:
+    - Polysalts and Fulgoran sludge now use icons by Malcolm Riley.
+  Balancing:
     - Fulgorite shards now produce 2x holmium powder for balance against other sources of holmium powder.
+    - Added setting to remove accumulators from the game, off by default.
+  Changes:
     - Recycling a charged battery now gives back the uncharged battery.
+    - Added PowerMultiplier compatibility - power multipliers will ignore battery chargers.
 ---------------------------------------------------------------------------------------------------
 Version: 1.3.0
 Date: 10. 12. 2024

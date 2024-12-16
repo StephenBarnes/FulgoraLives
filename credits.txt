@@ -1,4 +1,5 @@
 This mod contains graphics and code copied or adapted from:
+* Malcolm Riley for graphics - https://github.com/malcolmriley/unused-renders - Used icons for polysalts and sludge.
 * Battery Powered by harag - https://mods.factorio.com/mod/battery-powered - Charger/discharger graphics and animations, and ideas.
 * Biochemistry by Tenebrais - https://mods.factorio.com/mod/biochemistry - Electrophage graphics, and ideas.
-* Fulgoran Sludge by Tatticky - https://mods.factorio.com/mod/fulgoran-sludge - Sludge icon, and ideas.
+* Fulgoran Sludge by Tatticky - https://mods.factorio.com/mod/fulgoran-sludge - Sludge idea.

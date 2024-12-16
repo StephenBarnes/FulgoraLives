@@ -13,7 +13,9 @@ data:extend({
 	{
 		type = "fluid",
 		name = "fulgoran-sludge",
-		icon = "__FulgoraLives__/graphics/fulgoran-sludge.png",
+		icon = "__FulgoraLives__/graphics/from_malcolmriley/sludge.png",
+		icon_size = 128,
+		mipmap_count = 4,
 		base_color = { r = 0.24, g = 0.16, b = 0.16 },
 		flow_color = { r = 0.08, g = 0.08, b = 0.08 },
 		default_temperature = 5,
@@ -27,8 +29,9 @@ data:extend({
 		category = "chemistry",
 		icons = {
 			{
-				icon = "__FulgoraLives__/graphics/fulgoran-sludge.png",
-				scale = 0.35,
+				icon = "__FulgoraLives__/graphics/from_malcolmriley/sludge.png",
+				icon_size = 128,
+				scale = 0.18,
 				shift = { 0, -4.8 }
 			},
 			{

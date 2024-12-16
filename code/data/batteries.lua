@@ -303,7 +303,7 @@ data:extend({
         show_recipe_icon = false,
         crafting_categories = { "charging" },
         order = "z-1",
-        energy_usage = "1MW", -- PowerMultiplier will increase this, so we decrease it again in batteries-dff.lua.
+        energy_usage = "1MW",
         energy_source = {
             type = "electric",
             usage_priority = "secondary-input",
@@ -326,6 +326,8 @@ data:extend({
 			fade_in_ticks = 4,
 			fade_out_ticks = 20,
         },
+		---@diagnostic disable-next-line: assign-type-mismatch
+		PowerMultiplier_ignore = true, -- For PowerMultiplier mod, disables power changes to this entity.
 	},
 	{
 		type = "burner-generator",
@@ -419,15 +421,20 @@ data:extend({
 Util.addRecipeToTech("charge-battery", "battery", 2)
 Util.addRecipeToTech("charge-holmium-battery", "holmium-battery")
 
--- Remove accumulator tech from the game completely, since we're rather using batteries.
-Util.hideTech("electric-energy-accumulators")
-Util.removePrereq("planet-discovery-fulgora", "electric-energy-accumulators") -- Could add batteries, but it's already present indirectly through thrusters.
+if settings.startup["FulgoraLives-remove-accumulators"].value then
+	-- Remove accumulator tech from the game completely, since we're rather using batteries.
+	Util.hideTech("electric-energy-accumulators")
+	Util.removePrereq("planet-discovery-fulgora", "electric-energy-accumulators") -- Could add batteries, but it's already present indirectly through thrusters.
 
--- Remove accumulators from recipes.
-Util.hideRecipe("accumulator")
-Util.substituteIngredient("lightning-collector", "accumulator", "superconductor")
-Util.substituteIngredient("electromagnetic-science-pack", "accumulator", "charged-battery")
-Util.substituteIngredient("electromagnetic-science-pack", "supercapacitor", "superconductor", 4)
+	-- Remove from Factoriopedia
+	data.raw.item["accumulator"].hidden_in_factoriopedia = true
+
+	-- Remove accumulators from recipes.
+	Util.hideRecipe("accumulator")
+	Util.substituteIngredient("lightning-collector", "accumulator", "superconductor")
+	Util.substituteIngredient("electromagnetic-science-pack", "accumulator", "charged-battery")
+	Util.substituteIngredient("electromagnetic-science-pack", "supercapacitor", "superconductor", 4)
+end
 
 -- Reduce efficiency of lightning rods.
 data.raw["lightning-attractor"]["lightning-rod"].efficiency = .1 -- Changing 20% to 10%.
@@ -455,9 +462,9 @@ data:extend({
 			{ type = "item", name = "battery", amount = 1 },
 		},
 		results = { -- Returns 25%, same as recycling, so should be fine.
-			{ type = "fluid", name = "sulfuric-acid", amount = 5 },
-			{ type = "item", name = "iron-plate", amount = 1, probability = 0.25 },
-			{ type = "item", name = "copper-plate", amount = 1, probability = 0.25 },
+			{ type = "fluid", name = "sulfuric-acid", amount = 5, show_details_in_recipe_tooltip = false },
+			{ type = "item", name = "iron-plate", amount = 1, probability = 0.25, show_details_in_recipe_tooltip = false },
+			{ type = "item", name = "copper-plate", amount = 1, probability = 0.25, show_details_in_recipe_tooltip = false },
 		},
 		main_product = "sulfuric-acid",
 		order = data.raw.recipe["sulfuric-acid"].order .. "-b",

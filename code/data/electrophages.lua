@@ -158,7 +158,8 @@ end
 data.raw.item["electrophage"].spoil_result = "polysalt"
 local polysaltItem = table.deepcopy(data.raw.item["nutrients"])
 polysaltItem.name = "polysalt"
-polysaltItem.icon = "__FulgoraLives__/graphics/polysalt.png"
+polysaltItem.icon = "__FulgoraLives__/graphics/from_malcolmriley/polysalts.png"
+polysaltItem.icon_size = 128
 polysaltItem.subgroup = "fulgora-processes"
 polysaltItem.order = "c[organics]-b[polysalt]"
 polysaltItem.spoil_result = "stone"
