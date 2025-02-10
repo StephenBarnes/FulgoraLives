@@ -467,7 +467,7 @@ data:extend({
 			{ type = "item", name = "copper-plate", amount = 1, probability = 0.25, show_details_in_recipe_tooltip = false },
 		},
 		main_product = "sulfuric-acid",
-		order = data.raw.recipe["sulfuric-acid"].order .. "-b",
+		order = (data.raw.recipe["sulfuric-acid"].order or "c[oil-products]-b[sulfuric-acid]") .. "-b",
 		subgroup = data.raw.recipe["acid-neutralisation"].subgroup,
 		allow_as_intermediate = false,
 		allow_decomposition = false,
