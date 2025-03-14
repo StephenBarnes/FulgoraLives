@@ -1,12 +1,15 @@
--- Code and sprites are taken from Fulgoran Sludge mod by Tatticky.
--- This file creates the sludge fluid and recipe to separate it.
--- Since I'm making water scarce, heavy oil can't be cracked (that requires water). But you need light oil for rocket fuel. So I'm also making sludge filtration produce both heavy and light oil.
--- I'm also adding the Ocean Dumping mod which lets you dump anything you don't want into the sea. So eg to get rid of excess heavy/light oil you can just turn it into solid fuel and dump it into the sea.
+--[[ This file creates the sludge fluid and recipe to separate it.
+Some code taken from Fulgoran Sludge mod by Tatticky.
+Icon taken from Unused Renders by Malcolm Riley.
+
+Since I'm making water scarce, heavy oil can't be cracked (that requires water). But you need light oil for rocket fuel. So I'm also making sludge filtration produce both heavy and light oil.
+I'm also adding the Ocean Dumping mod which lets you dump anything you don't want into the sea. So eg to get rid of excess heavy/light oil you can just turn it into solid fuel and dump it into the sea.
+]]
 
 local Util = require("code.util")
 
-local ironStick = Util.ifThenElse(data.raw.item["rocs-rusting-iron-iron-stick-rusty"] ~= nil, "rocs-rusting-iron-iron-stick-rusty", "iron-stick")
-local ironGear = Util.ifThenElse(data.raw.item["rocs-rusting-iron-iron-gear-wheel-rusty"] ~= nil, "rocs-rusting-iron-iron-gear-wheel-rusty", "iron-gear-wheel")
+local ironStick = Util.firstExisting({"rocs-rusting-iron-iron-stick-rusty", "iron-stick-rusty", "iron-stick"}, data.raw.item)
+local ironGear = Util.firstExisting({"rocs-rusting-iron-iron-gear-wheel-rusty", "iron-gear-wheel-rusty", "iron-gear-wheel"}, data.raw.item)
 
 -- Create sludge fluid, and a recipe to separate it.
 data:extend({

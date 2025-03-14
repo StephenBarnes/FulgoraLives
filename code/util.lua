@@ -8,6 +8,14 @@ Export.ifThenElse = function(condition, thenValue, elseValue)
 	end
 end
 
+Export.firstExisting = function(listOfKeys, table)
+	for _, key in pairs(listOfKeys) do
+		if table[key] ~= nil then
+			return key
+		end
+	end
+end
+
 Export.substituteIngredient = function(recipeName, ingredientName, newIngredientName, newAmount, enableWarnings)
 	if data.raw.recipe[recipeName].ingredients == nil then
 		if enableWarnings == nil or enableWarnings == true then

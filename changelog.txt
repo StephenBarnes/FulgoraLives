@@ -1,4 +1,11 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.4.2
+Date: 14. 3. 2025
+  Changes:
+    - Added refined concrete to scrap recycling recipe results (because it's needed on Fulgora for EM plants and rail ramps, but it requires water).
+  Compatibility:
+    - Handle upcoming item name changes in Rusting Iron mod.
+---------------------------------------------------------------------------------------------------
 Version: 1.4.1
 Date: 10. 2. 2025
   Bugfixes:

@@ -1,17 +1,19 @@
 local Util = require("code.util")
 
-local ironStick = Util.ifThenElse(data.raw.item["rocs-rusting-iron-iron-stick-rusty"] ~= nil, "rocs-rusting-iron-iron-stick-rusty", "iron-stick")
-local ironGear = Util.ifThenElse(data.raw.item["rocs-rusting-iron-iron-gear-wheel-rusty"] ~= nil, "rocs-rusting-iron-iron-gear-wheel-rusty", "iron-gear-wheel")
+local ironStick = Util.firstExisting({"rocs-rusting-iron-iron-stick-rusty", "iron-stick-rusty", "iron-stick"}, data.raw.item)
+local ironGear = Util.firstExisting({"rocs-rusting-iron-iron-gear-wheel-rusty", "iron-gear-wheel-rusty", "iron-gear-wheel"}, data.raw.item)
 
 -- Change scrap recycling outputs.
-data.raw["recipe"]["scrap-recycling"].results = {
+local scrapRecyclingRecipe = data.raw.recipe["scrap-recycling"]
+scrapRecyclingRecipe.results = {
 	{ type = "item", name = "processing-unit",       amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false },
 	{ type = "item", name = "advanced-circuit",      amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false },
 	{ type = "item", name = "low-density-structure", amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false },
 	--{ type = "item", name = "solid-fuel",            amount = 1, probability = 0.01, show_details_in_recipe_tooltip = false },
 		-- Changed 0.07 -> 0.01. Actually rather removing this bc you can make it from sludge easily and it's not useful for power gen any more.
 	{ type = "item", name = "steel-plate",           amount = 1, probability = 0.04, show_details_in_recipe_tooltip = false },
-	{ type = "item", name = "concrete",              amount = 1, probability = 0.06, show_details_in_recipe_tooltip = false },
+	{ type = "item", name = "concrete",              amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false },
+	{ type = "item", name = "refined-concrete",      amount = 1, probability = 0.03, show_details_in_recipe_tooltip = false },
 	--{ type = "item", name = "stone-brick",           amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false },
 		-- Added. Then removed bc rather just do concrete.
 	{ type = "item", name = "battery",               amount = 1, probability = 0.08, show_details_in_recipe_tooltip = false },
@@ -32,6 +34,12 @@ data.raw["recipe"]["scrap-recycling"].results = {
 	{ type = "item", name = "plastic-bar",          amount = 1, probability = 0.02, show_details_in_recipe_tooltip = false },
 		-- Added.
 }
+
+-- Enlarge result inventory of recycler if needed.
+local recycler = data.raw.furnace.recycler
+if recycler.result_inventory_size < #scrapRecyclingRecipe.results then
+	recycler.result_inventory_size = #scrapRecyclingRecipe.results
+end
 
 -- Change holmium solution recipe to not require water, since I'm making that scarce.
 -- (In batteries file, I'm adding a recipe to get sulfuric acid from batteries, so sulfuric acid is available on Fulgora.)
