@@ -47,7 +47,6 @@ data:extend({
 		ingredients = {
 			{type = "item", name = "electrophage", amount = 1},
 			{type = "item", name = "charged-battery", amount = 1},
-			{type = "fluid", name = "fulgoran-sludge", amount = 40},
 			{type = "fluid", name = "electrolyte", amount = 2},
 		},
 		results = {
@@ -79,7 +78,6 @@ data:extend({
 		ingredients = {
 			{type = "item", name = "electrophage", amount = 1},
 			{type = "item", name = "charged-holmium-battery", amount = 1},
-			{type = "fluid", name = "fulgoran-sludge", amount = 400},
 			{type = "fluid", name = "electrolyte", amount = 10},
 		},
 		results = {

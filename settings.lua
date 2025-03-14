@@ -6,4 +6,11 @@ data:extend({
 		default_value = false,
 		order = "a",
 	},
+	{
+		type = "bool-setting",
+		name = "FulgoraLives-increase-power-consumption",
+		setting_type = "startup",
+		default_value = true,
+		order = "b",
+	},
 })

@@ -46,5 +46,7 @@ end
 Util.substituteIngredient("holmium-solution", "water", "sulfuric-acid")
 
 -- Increase power consumption of EM plants and recyclers.
-data.raw["assembling-machine"]["electromagnetic-plant"].energy_usage = "4MW" -- Doubling 2MW -> 4MW.
-data.raw["furnace"]["recycler"].energy_usage = "400kW" -- Increasing 180kW -> 400kW.
+if settings.startup["FulgoraLives-increase-power-consumption"].value then
+	data.raw["assembling-machine"]["electromagnetic-plant"].energy_usage = "4MW" -- Doubling 2MW -> 4MW.
+	data.raw["furnace"]["recycler"].energy_usage = "400kW" -- Increasing 180kW -> 400kW.
+end
